@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * Print lower case in reverse
+ * main - Prints the alphabet at reverse
  *
- * Return- Always (sucess)
+ * Return: Always (Sucess)
  */
 int main(void)
 {
@@ -16,5 +16,5 @@ int main(void)
 
 	putchar ('\n');
 
-	return (0) ;
-
+	return (0);
+}
