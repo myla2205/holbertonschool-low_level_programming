@@ -1,12 +1,17 @@
 #include <stdio.h>
 
+/**
+ * main - Prints the numbers since 0 to 9
+ *
+ * Return : Always (Success)
+ */
 int main(void)
 {
-    int number;
+    int n;
 
-    for (number = 0; number <= 9; number++)
+    for (n = 0; number <= 9; n++)
     {
-        putchar(number + '0'); 
+        putchar(n); 
     }
 
     putchar('\n'); 
