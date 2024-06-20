@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * print_times_table - Prints the times table of the input,
- *                     starting with 0.
- * @n: The value of the times table to be printed.
+ * main- main block
+ * Description: Print the first 50 fibonacci numbers,starting with 1 and 2.
+ * Numbers must be coma and space separated.
+ * Return: 0
  */
 void print_times_table(int n)
 {
