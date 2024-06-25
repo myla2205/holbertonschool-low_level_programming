@@ -1,21 +1,26 @@
+#include "main.h"
 /**
- * *_strcat - See description
- * @dest: char type string
- * @src: char type string
- * Description: Concanate the string pointed to by pointer `src` to
- * the buffer pointed to by `dest`
- * Return: Pointer to `dest`
+ * _strcat - concatenates two strings,
+ * @dest: destination.
+ * @src: source.
+ * Return: the pointer to dest.
  */
-
 char *_strcat(char *dest, char *src)
 {
-	int i;
+	int count = 0, count2 = 0;
 
-	for (i = 0; src[i] != '\0'; i++)
+	while (*(dest + count) != '\0')
 	{
-		dest[i] = src[i];
+		count++;
 	}
-	dest[i] = '\0';
 
+	while (count2 >= 0)
+	{
+		*(dest + count) = *(src + count2);
+		if (*(src + count2) == '\0')
+			break;
+		count++;
+		count2++;
+	}
 	return (dest);
 }
