@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * sting_toupper - changes all lowercase letter of a sting
+ * string_toupper - changes all lowercase letter of a sting
  * to uppercase
  * @s: input string.
  * Return: the pointer to dest.
@@ -12,8 +12,8 @@ char *string_toupper(char *s)
 	while (*(s + count) != '\0')
 	{
 		if ((*(s + count) >= 97) && (*(s + count) <= 122))
-			*(s + count) = *(s + count) -32;
-		count ++;
+			*(s + count) = *(s + count) - 32;
+		count++;
 	}
 
 	return (s);
