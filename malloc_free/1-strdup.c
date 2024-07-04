@@ -1,23 +1,26 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * main - check the code for Holberton School students.
+ * _strdup - Duplicates a string.
+ * @str: string to be duplicated.
  *
- * Return: Always 0.
+ * Return: String duplicated
  */
-int main(void)
+char *_strdup(char *str)
 {
-	char *s;
+	char *array = NULL;
+	unsigned int i, size = 0;
 
-	s = _strdup("Holberton\0");
-	if (s == NULL)
-	{
-		printf("failed to allocate memory\n");
-		return (1);
-	}
-	printf("%s\n", s);
-	free(s);
-	return (0);
+	if (str == NULL)
+		return (NULL);
+	while (str[size] != '\0')
+		size++;
+	array = malloc((size + 1) * sizeof(char));
+
+	if (array == NULL)
+		return (NULL);
+	for (i = 0; i <= size; i++)
+		array[i] = str[i];
+	return (array);
 }
