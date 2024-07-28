@@ -1,6 +1,6 @@
-#ifndef HEADER_H
+#ifndef LISTS_H_
+#define LISTS_H_
 
-#define HEADER_H
 #include <stdio.h>
 #include <stdlib.h>
 /**
@@ -26,7 +26,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
 void free_dlistint(dlistint_t *head);
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
 int sum_dlistint(dlistint_t *head);
-dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int index, int n);
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
-int _putchar(char c);
-#endif
+
+#endif /* LISTS_H_ */
