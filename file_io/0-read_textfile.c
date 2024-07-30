@@ -1,27 +1,50 @@
 #include "main.h"
+
 /**
- * read_textfile - reads a text file and prints it to the standard output.
- * @filename: The file's name.
- * @letters: The file's length.
- * Return: 1 on sucess or -1 on failure.
+ * read_textfile - Reads a text file and prints it to the POSIX stdout.
+ * @filename: A pointer to the name of the file.
+ * @letters: The number of letter it should read and print.
+ *
+ * Return: The actual number of letters it could read and print.
+ *			If the file can not be opened or read, return 0.
+ *			If filename is NULL, return 0.
+ *			If write fails or does not write the expected amount of bytes, return 0.
  */
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char *buffer = NULL;
-	int fdesc, size, error = -1;
+	int fd_to_read, fd_to_write, fd_to_open;
+	char *buffer;
 
-	if (filename)
+	if (filename == NULL)
 	{
-		fdesc = open(filename, O_RDONLY);
-		buffer = malloc(sizeof(char) * letters);
-		if (fdesc > 0 && buffer)
-		{
-			size = read(fdesc, buffer, letters);
-			if (size >= 0 && (size_t)size <= letters)
-				error = write(STDOUT_FILENO, buffer, size);
-			close(fdesc);
-		}
+		return (0);
 	}
+
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
+	{
+		return (0);
+	}
+
+	fd_to_open = open(filename, O_RDONLY);
+	fd_to_read = read(fd_to_open, buffer, letters);
+	fd_to_write = write(STDOUT_FILENO, buffer, fd_to_read);
+
+	if (fd_to_open == -1 || fd_to_read == -1 || fd_to_write == -1)
+	{
+		free(buffer);
+		return (0);
+	}
+
+	if (fd_to_write != fd_to_read)
+	{
+		free(buffer);
+		return (0);
+	}
+
 	free(buffer);
-	return ((error >= 0 && error == size) ? error : 0);
+	close(fd_to_open);
+
+	return (fd_to_write);
 }
